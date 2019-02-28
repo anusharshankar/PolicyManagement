@@ -1,0 +1,88 @@
+﻿@model PolicyManagement.Models.Policy
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Create a Policy</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PTitle" class="control-label"></label>
+                <input asp-for="PTitle" class="form-control" />
+                <span asp-validation-for="PTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PDescription" class="control-label"></label>
+                <input asp-for="PDescription" class="form-control" />
+                <span asp-validation-for="PDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PScope" class="control-label"></label>
+                <input asp-for="PScope" class="form-control" />
+                <span asp-validation-for="PScope" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApprovalAuthority" class="control-label"></label>
+                <input asp-for="ApprovalAuthority" class="form-control" />
+                <span asp-validation-for="ApprovalAuthority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdvisoryCommittee" class="control-label"></label>
+                <input asp-for="AdvisoryCommittee" class="form-control" />
+                <span asp-validation-for="AdvisoryCommittee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Administrator" class="control-label"></label>
+                <input asp-for="Administrator" class="form-control" />
+                <span asp-validation-for="Administrator" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NxtReviewDate" class="control-label"></label>
+                <input asp-for="NxtReviewDate" class="form-control" />
+                <span asp-validation-for="NxtReviewDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrigApprAuth" class="control-label"></label>
+                <input asp-for="OrigApprAuth" class="form-control" />
+                <span asp-validation-for="OrigApprAuth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApprDate" class="control-label"></label>
+                <input asp-for="ApprDate" class="form-control" />
+                <span asp-validation-for="ApprDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmendAuth" class="control-label"></label>
+                <input asp-for="AmendAuth" class="form-control" />
+                <span asp-validation-for="AmendAuth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmendDate" class="control-label"></label>
+                <input asp-for="AmendDate" class="form-control" />
+                <span asp-validation-for="AmendDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

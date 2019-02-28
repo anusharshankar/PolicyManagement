@@ -1,0 +1,61 @@
+﻿@model PolicyManagement.Models.Actions
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Actions</h4>
+    <hr />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.ATitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ATitle)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.ADesc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ADesc)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Inputs)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Inputs)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Outputs)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Outputs)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Departments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Departments)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSRSAffected)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsSRSAffected)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Process)
+        </dt>
+        <dd>
+            @*@Html.DisplayFor(model => model.Process.ProcessId)*@
+            @Html.DisplayFor(model => model.Process.ProcTitle)
+        </dd><br />
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ActionId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

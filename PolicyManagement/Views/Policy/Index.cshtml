@@ -1,0 +1,111 @@
+﻿@model IEnumerable<PolicyManagement.Models.Policy>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-action no-color">
+        <p>
+            Find by name: <input type="text" name="searchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> | <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["TitleSortParm"]">@Html.DisplayNameFor(model => model.PTitle)</a>                
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PScope)
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["ApprovalSortParm"]">@Html.DisplayNameFor(model => model.ApprovalAuthority)</a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdvisoryCommittee)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Administrator)
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["ReviewSortParm"]"> @Html.DisplayNameFor(model => model.NxtReviewDate)</a>
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.OrigApprAuth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApprDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AmendAuth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AmendDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Notes)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PScope)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovalAuthority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdvisoryCommittee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Administrator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NxtReviewDate)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.OrigApprAuth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmendAuth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmendDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PolicyId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PolicyId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PolicyId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<PolicyManagement.Models.Incident>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FiledBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FiledOn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Issues)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.StepsTaken)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExpectedOutcome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ActualOutcome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RootCause)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ChangedExpectation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NecessaryFix)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FixStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FilerFeedback)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FiledBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FiledOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Issues)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.StepsTaken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpectedOutcome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualOutcome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RootCause)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChangedExpectation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NecessaryFix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FixStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilerFeedback)
+            </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IncidentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IncidentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IncidentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

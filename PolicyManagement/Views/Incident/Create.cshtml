@@ -1,0 +1,88 @@
+﻿@model PolicyManagement.Models.Incident
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Incident</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FiledBy" class="control-label"></label>
+                <input asp-for="FiledBy" class="form-control" />
+                <span asp-validation-for="FiledBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FiledOn" class="control-label"></label>
+                <input asp-for="FiledOn" class="form-control" />
+                <span asp-validation-for="FiledOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Issues" class="control-label"></label>
+                <input asp-for="Issues" class="form-control" />
+                <span asp-validation-for="Issues" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StepsTaken" class="control-label"></label>
+                <input asp-for="StepsTaken" class="form-control" />
+                <span asp-validation-for="StepsTaken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExpectedOutcome" class="control-label"></label>
+                <input asp-for="ExpectedOutcome" class="form-control" />
+                <span asp-validation-for="ExpectedOutcome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActualOutcome" class="control-label"></label>
+                <input asp-for="ActualOutcome" class="form-control" />
+                <span asp-validation-for="ActualOutcome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RootCause" class="control-label"></label>
+                <input asp-for="RootCause" class="form-control" />
+                <span asp-validation-for="RootCause" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChangedExpectation" class="control-label"></label>
+                <input asp-for="ChangedExpectation" class="form-control" />
+                <span asp-validation-for="ChangedExpectation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NecessaryFix" class="control-label"></label>
+                <input asp-for="NecessaryFix" class="form-control" />
+                <span asp-validation-for="NecessaryFix" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FixStatus" class="control-label"></label>
+                <input asp-for="FixStatus" class="form-control" />
+                <span asp-validation-for="FixStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FilerFeedback" class="control-label"></label>
+                <input asp-for="FilerFeedback" class="form-control" />
+                <span asp-validation-for="FilerFeedback" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

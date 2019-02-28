@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PolicyManagement.Models.Procedure>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="ViewData[" TitleSortParm"]">@Html.DisplayNameFor(model => model.PrTitle)</a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrDesc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrPurpose)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Policy) @*<a asp-action="Index" asp-route-sortOrder="ViewData[" PolicySortParm"]">*@@*</a>*@
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrPurpose)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Policy.PolicyId)*@
+                @Html.DisplayFor(modelItem => item.Policy.PTitle)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProcedureId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProcedureId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProcedureId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

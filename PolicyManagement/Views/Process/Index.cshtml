@@ -1,0 +1,48 @@
+﻿@model IEnumerable<PolicyManagement.Models.Process>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProcTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProcDesc)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Procedure)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcDesc)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Procedure.ProcedureId)*@
+                @Html.DisplayFor(modelItem => item.Procedure.PrTitle)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProcessId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProcessId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProcessId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

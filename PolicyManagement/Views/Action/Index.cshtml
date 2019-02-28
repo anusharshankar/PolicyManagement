@@ -1,0 +1,74 @@
+﻿@model IEnumerable<PolicyManagement.Models.Actions>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ATitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ADesc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Inputs)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Outputs)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Departments)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsSRSAffected)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Process)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ATitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ADesc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Inputs)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Outputs)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Departments)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsSRSAffected)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Process.ProcessId)*@
+                        @Html.DisplayFor(modelItem => item.Process.ProcTitle)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ActionId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ActionId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ActionId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+

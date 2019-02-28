@@ -1,0 +1,44 @@
+﻿@model PolicyManagement.Models.Procedure
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Procedure</h4>
+    <hr />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrTitle)
+        </dd><br/>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrDesc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrDesc)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.PrPurpose)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrPurpose)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Policy)
+        </dt>
+        <dd>
+            @*@Html.DisplayFor(model => model.Policy.PolicyId)*@
+            @Html.DisplayFor(model => model.Policy.PTitle)
+
+        </dd><br />
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProcedureId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

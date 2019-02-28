@@ -1,0 +1,90 @@
+﻿@model PolicyManagement.Models.Incident
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Incident</h4>
+    <hr />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.FiledBy)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FiledBy)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.FiledOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FiledOn)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Issues)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Issues)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.StepsTaken)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StepsTaken)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpectedOutcome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ExpectedOutcome)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualOutcome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActualOutcome)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.RootCause)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RootCause)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.ChangedExpectation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ChangedExpectation)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.NecessaryFix)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NecessaryFix)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.FixStatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FixStatus)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.FilerFeedback)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FilerFeedback)
+        </dd><br />
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IncidentId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

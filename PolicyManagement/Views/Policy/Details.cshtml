@@ -1,0 +1,93 @@
+﻿@model PolicyManagement.Models.Policy
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Policy</h4>
+    @*<div class="col-md-push-10">
+        <a asp-action="Create" asp-controller="Procedure" class="btn btn-primary">Create a procedure</a>
+    </div>*@
+    <hr />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.PTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PTitle)
+        </dd><br/>
+        <dt>
+            @Html.DisplayNameFor(model => model.PDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PDescription)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.PScope)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PScope)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.ApprovalAuthority)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ApprovalAuthority)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisoryCommittee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AdvisoryCommittee)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Administrator)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Administrator)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.NxtReviewDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NxtReviewDate)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.OrigApprAuth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrigApprAuth)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.ApprDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ApprDate)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.AmendAuth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AmendAuth)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.AmendDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AmendDate)
+        </dd><br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd><br />
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PolicyId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
