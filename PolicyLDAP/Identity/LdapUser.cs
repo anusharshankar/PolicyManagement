@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNetCore.Identity;
 
 
 namespace PolicyLDAP.Identity
 {
-    public class LdapUser : ILdapEntry//, IdentityUser
+    public class LdapUser :  IdentityUser, ILdapEntry
     {
         public string ObjectSid { get; set; }
 

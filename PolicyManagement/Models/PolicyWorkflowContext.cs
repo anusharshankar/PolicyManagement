@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using PolicyManagement.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using PolicyLDAP.Identity;
 
 namespace PolicyManagement.Models
 {
-    public class PolicyWorkflowContext  : DbContext
+    public class PolicyWorkflowContext  :  DbContext
     {
-        public PolicyWorkflowContext(DbContextOptions<PolicyWorkflowContext> options): base(options)
-        {
 
+        public PolicyWorkflowContext(DbContextOptions options) : base(options)
+        {
         }
 
         public DbSet<Policy> Policies { get; set; }
