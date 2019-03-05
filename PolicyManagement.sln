@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolicyManagement", "PolicyManagement\PolicyManagement.csproj", "{C4316100-DFF7-4391-BB9B-32F2D4379E3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolicyManagement", "PolicyManagement\PolicyManagement.csproj", "{C4316100-DFF7-4391-BB9B-32F2D4379E3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolicyLDAP", "PolicyLDAP\PolicyLDAP.csproj", "{4D64756D-C5F0-4806-8EC0-32D2A9B9473F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C4316100-DFF7-4391-BB9B-32F2D4379E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4316100-DFF7-4391-BB9B-32F2D4379E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4316100-DFF7-4391-BB9B-32F2D4379E3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D64756D-C5F0-4806-8EC0-32D2A9B9473F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D64756D-C5F0-4806-8EC0-32D2A9B9473F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D64756D-C5F0-4806-8EC0-32D2A9B9473F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D64756D-C5F0-4806-8EC0-32D2A9B9473F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
