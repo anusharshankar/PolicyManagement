@@ -18,73 +18,192 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PTitle)
-        </dd><br/>
+        </dd>
+        <br />
         <dt>
             @Html.DisplayNameFor(model => model.PDescription)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PDescription)
-        </dd><br />
+        </dd>
+        <br />
         <dt>
             @Html.DisplayNameFor(model => model.PScope)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PScope)
-        </dd><br />
-        <dt>
-            @Html.DisplayNameFor(model => model.ApprovalAuthority)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ApprovalAuthority)
-        </dd><br />
-        <dt>
-            @Html.DisplayNameFor(model => model.AdvisoryCommittee)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.AdvisoryCommittee)
-        </dd><br />
-        <dt>
-            @Html.DisplayNameFor(model => model.Administrator)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Administrator)
-        </dd><br />
-        <dt>
-            @Html.DisplayNameFor(model => model.NxtReviewDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NxtReviewDate)
-        </dd><br />
-        <dt>
-            @Html.DisplayNameFor(model => model.OrigApprAuth)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrigApprAuth)
-        </dd><br />
-        <dt>
-            @Html.DisplayNameFor(model => model.ApprDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ApprDate)
-        </dd><br />
-        <dt>
-            @Html.DisplayNameFor(model => model.AmendAuth)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.AmendAuth)
-        </dd><br />
-        <dt>
-            @Html.DisplayNameFor(model => model.AmendDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.AmendDate)
-        </dd><br />
+        </dd>
+        <br />
         <dt>
             @Html.DisplayNameFor(model => model.Notes)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Notes)
-        </dd><br />
+        </dd>
+        <br/>
+        <table class="table table-bordered">
+            <thead><b>Approval and Review</b></thead>
+            <tbody>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ApprovalAuthority)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ApprovalAuthority)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AdvisoryCommittee)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.AdvisoryCommittee)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Administrator)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Administrator)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NxtReviewDate)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.NxtReviewDate)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <table class="table table-bordered">
+            <thead><b>Approval and Amendment History</b></thead>
+            <tbody>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrigApprAuth)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.OrigApprAuth)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ApprDate)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.ApprDate)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AmendAuth)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.AmendAuth)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AmendDate)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.AmendDate)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br />
+        <dt>@Html.DisplayNameFor(model => model.Procedures)</dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Procedure Title</th>
+                    <th>Procedure Description</th>
+                    <th>Procedure Purpose</th>
+                </tr>
+                @foreach (var item in Model.Procedures)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrDesc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrPurpose)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+        <br />
+        <dt>@Html.DisplayNameFor(model => model.Procedures.FirstOrDefault().Processes)</dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Process Title</th>
+                    <th>Process Description</th>
+
+                </tr>
+                @foreach (var item in Model.Procedures.FirstOrDefault().Processes)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProcTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProcDesc)
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        </dd>
+        <br />
+        <dt>@Html.DisplayNameFor(model => model.Procedures.FirstOrDefault().Processes.FirstOrDefault().Actions)</dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Action Title</th>
+                    <th>Action Description</th>
+                    <th>Action Inputs</th>
+                    <th>Action Outputs</th>
+                    <th>Departments</th>
+                    <th>Is SRS Affected</th>
+
+                </tr>
+                @foreach (var item in Model.Procedures.FirstOrDefault().Processes.FirstOrDefault().Actions)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ATitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ADesc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Inputs)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Outputs)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Departments)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsSRSAffected)
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <div>

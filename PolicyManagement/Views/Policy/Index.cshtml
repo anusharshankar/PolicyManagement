@@ -22,47 +22,57 @@
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["TitleSortParm"]">@Html.DisplayNameFor(model => model.PTitle)</a>                
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PDescription)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PScope)
-                </th>
-                <th>
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["ApprovalSortParm"]">@Html.DisplayNameFor(model => model.ApprovalAuthority)</a>
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AdvisoryCommittee)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Administrator)
-                </th>
-                <th>
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["ReviewSortParm"]"> @Html.DisplayNameFor(model => model.NxtReviewDate)</a>
-                </th>
-                @*<th>
-                    @Html.DisplayNameFor(model => model.OrigApprAuth)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ApprDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AmendAuth)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AmendDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Notes)
-                </th>*@
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["TitleSortParm"]">@Html.DisplayNameFor(model => model.PTitle)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PScope)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ApprovalSortParm"]">@Html.DisplayNameFor(model => model.ApprovalAuthority)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdvisoryCommittee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Administrator)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ReviewSortParm"]"> @Html.DisplayNameFor(model => model.NxtReviewDate)</a>
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Procedures)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Procedures.FirstOrDefault().Processes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Procedures.FirstOrDefault().Processes.FirstOrDefault().Actions)
+            </th>*@
             <th></th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.OrigApprAuth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApprDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmendAuth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmendDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>*@
+
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.PTitle)
@@ -86,26 +96,76 @@
                 @Html.DisplayFor(modelItem => item.NxtReviewDate)
             </td>
             @*<td>
-                @Html.DisplayFor(modelItem => item.OrigApprAuth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApprDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AmendAuth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AmendDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>*@
+             <table class="table">
+                 @foreach (var proc in item.Procedures)
+                 {
+                     <tr>
+                         <th>Procedure Title</th>
+                         <th>Procedure Description</th>
+                         <th>Procedure Purpose</th>
+                     </tr>
+                     <tr>
+                         <td>@proc.PrTitle</td>
+                         <td>@proc.PrDesc </td>
+                         <td>@proc.PrPurpose</td>
+                     </tr>
+                 }
+             </table>
+             <br />
+         </td>
+        <td>
+             <table class="table">
+                 @foreach (var proc in item.Procedures.FirstOrDefault().Processes)
+                 {
+                     <tr>
+                         <th>Process Title</th>
+                         <th>Procedure Description</th>
+                     </tr>
+                     <tr>
+                         <td>@proc.ProcTitle</td>
+                         <td>@proc.ProcDesc </td>
+                     </tr>
+                 }
+             </table>
+             <br />
+         </td>
+         <td>
+             <table class="table">
+                  @foreach (var a in item.Procedures.FirstOrDefault().Processes.FirstOrDefault().Actions)
+                  {
+                 <tr>
+                     <th>Action Title</th>
+                     <th>Action Description</th>
+                 </tr>
+                  <tr>
+                             <td>@a.ATitle</td>
+                             <td>@a.ADesc</td>
+                         </tr>
+                         }
+                     </table>
+                         <br />
+         </td>*@
+            @*<td>
+            @Html.DisplayFor(modelItem => item.OrigApprAuth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApprDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmendAuth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmendDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>*@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.PolicyId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.PolicyId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.PolicyId">Delete</a>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
