@@ -36,7 +36,9 @@ namespace PolicyManagement.Controllers
 
             ViewData["CurrentFilter"] = searchString;
 
-            var policies = from p in _context.Policies select p;
+            //var policies = from p in _context.Policies select p;
+
+            var policies =  from p in _context.Policies.Include(i => i.Procedures).ThenInclude(i=>i.Processes).ThenInclude(i=>i.Actions) select p;
 
             if(!String.IsNullOrEmpty(searchString))
             {
@@ -57,10 +59,10 @@ namespace PolicyManagement.Controllers
 
             }
             //return View(await PaginatedList<Policy>.CreateAsync(policies.AsNoTracking(), page ?? 1, pageSize));
-            return View(await policies.AsNoTracking().ToListAsync());
+            return View(await policies.ToListAsync());
         }
 
-        // GET: Policy/Details/5
+        //GET: Policy/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -68,7 +70,7 @@ namespace PolicyManagement.Controllers
                 return NotFound();
             }
 
-            var policy = await _context.Policies
+            var policy = await _context.Policies.Include(i => i.Procedures).ThenInclude(i => i.Processes).ThenInclude(i => i.Actions)
                 .SingleOrDefaultAsync(m => m.PolicyId == id);
             if (policy == null)
             {
