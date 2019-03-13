@@ -8,86 +8,87 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Policy</h4>
+    @*<h4>Policy</h4>*@
     <hr />
-    <dl class="dl-horizontal">
+    <dl>
+        @* class="dl-horizontal" *@
         <dt>
             @Html.DisplayNameFor(model => model.PTitle)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PTitle)
-        </dd>
+        </dd><br/>
         <dt>
             @Html.DisplayNameFor(model => model.PDescription)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PDescription)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.PScope)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PScope)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.ApprovalAuthority)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ApprovalAuthority)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.AdvisoryCommittee)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.AdvisoryCommittee)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.Administrator)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Administrator)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.NxtReviewDate)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.NxtReviewDate)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.OrigApprAuth)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.OrigApprAuth)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.ApprDate)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ApprDate)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.AmendAuth)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.AmendAuth)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.AmendDate)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.AmendDate)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.Notes)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Notes)
-        </dd>
+        </dd><br />
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="PolicyId" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <a class="btn btn-default" asp-action="Index">Back to List</a>
     </form>
 </div>

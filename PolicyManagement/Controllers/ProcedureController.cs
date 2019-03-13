@@ -63,7 +63,9 @@ namespace PolicyManagement.Controllers
         // GET: Procedure/Create
         public IActionResult Create()
         {
-            ViewData["PolicyId"] = new SelectList(_context.Policies, "PolicyId", "PolicyId");
+            //ViewData["PolicyTitle"] = new SelectList(_context.Policies, "PolicyId", "PTitle");
+            //ViewData["PolicyId"] = new SelectList(_context.Policies, "PolicyId", "PolicyId");
+            PopulatePolicyDropdownList();
             return View();
         }
 
@@ -80,7 +82,9 @@ namespace PolicyManagement.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PolicyId"] = new SelectList(_context.Policies, "PolicyId", "PolicyId", procedure.PolicyId);
+            PopulatePolicyDropdownList(procedure.PolicyId);
+            //ViewData["PolicyTitle"] = new SelectList(_context.Policies, "PolicyId", "PTitle", procedure.PolicyId);
+            //ViewData["PolicyId"] = new SelectList(_context.Policies, "PolicyId", "PolicyId", procedure.PolicyId);
             return View(procedure);
         }
 
@@ -97,7 +101,8 @@ namespace PolicyManagement.Controllers
             {
                 return NotFound();
             }
-            ViewData["PolicyId"] = new SelectList(_context.Policies, "PolicyId", "PolicyId", procedure.PolicyId);
+            //ViewData["PolicyId"] = new SelectList(_context.Policies, "PolicyId", "PolicyId", procedure.PolicyId);
+            PopulatePolicyDropdownList(procedure.PolicyId);
             return View(procedure);
         }
 
@@ -133,7 +138,8 @@ namespace PolicyManagement.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PolicyId"] = new SelectList(_context.Policies, "PolicyId", "PolicyId", procedure.PolicyId);
+            //ViewData["PolicyId"] = new SelectList(_context.Policies, "PolicyId", "PolicyId", procedure.PolicyId);
+            PopulatePolicyDropdownList(procedure.PolicyId);
             return View(procedure);
         }
 
@@ -170,6 +176,13 @@ namespace PolicyManagement.Controllers
         private bool ProcedureExists(int id)
         {
             return _context.Procedures.Any(e => e.ProcedureId == id);
+        }
+
+        private void PopulatePolicyDropdownList(object selectedPolicy = null)
+        {
+            var policiesQuery = from p in _context.Policies orderby p.PTitle select p;
+
+            ViewBag.PolicyId = new SelectList(policiesQuery.AsNoTracking(), "PolicyId", "PTitle", selectedPolicy);
         }
     }
 }

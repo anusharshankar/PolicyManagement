@@ -19,7 +19,7 @@ namespace PolicyManagement.Controllers
         }
 
         // GET: Incident
-        public async Task<IActionResult> Index(string sortOrder, string searchString, string currentFilte)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, string currentFilter)
         {
             ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";

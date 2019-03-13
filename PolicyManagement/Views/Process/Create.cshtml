@@ -22,9 +22,15 @@
                 <input asp-for="ProcDesc" class="form-control" />
                 <span asp-validation-for="ProcDesc" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+                    <label asp-for="ProcedureId" class="control-label"></label>
+                    <select asp-for="ProcedureId" class ="form-control" asp-items="ViewBag.ProcedureId"></select>
+                </div>*@
             <div class="form-group">
-                <label asp-for="ProcedureId" class="control-label"></label>
-                <select asp-for="ProcedureId" class ="form-control" asp-items="ViewBag.ProcedureId"></select>
+                <label asp-for="Procedure" class="control-label"></label>
+                <select asp-for="ProcedureId" class="form-control" asp-items="ViewBag.ProcedureId">
+                    <option value="">-- Select Procedure --</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-success" />

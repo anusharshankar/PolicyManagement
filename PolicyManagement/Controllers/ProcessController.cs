@@ -47,7 +47,8 @@ namespace PolicyManagement.Controllers
         // GET: Process/Create
         public IActionResult Create()
         {
-            ViewData["ProcedureId"] = new SelectList(_context.Procedures, "ProcedureId", "ProcedureId");
+            //ViewData["ProcedureId"] = new SelectList(_context.Procedures, "ProcedureId", "ProcedureId");
+            PopulateProcedureDropdownList();
             return View();
         }
 
@@ -64,7 +65,8 @@ namespace PolicyManagement.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProcedureId"] = new SelectList(_context.Procedures, "ProcedureId", "ProcedureId", process.ProcedureId);
+            PopulateProcedureDropdownList(process.ProcedureId);
+           // ViewData["ProcedureId"] = new SelectList(_context.Procedures, "ProcedureId", "ProcedureId", process.ProcedureId);
             return View(process);
         }
 
@@ -81,7 +83,8 @@ namespace PolicyManagement.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProcedureId"] = new SelectList(_context.Procedures, "ProcedureId", "ProcedureId", process.ProcedureId);
+            //ViewData["ProcedureId"] = new SelectList(_context.Procedures, "ProcedureId", "ProcedureId", process.ProcedureId);
+            PopulateProcedureDropdownList(process.ProcedureId);
             return View(process);
         }
 
@@ -117,7 +120,8 @@ namespace PolicyManagement.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProcedureId"] = new SelectList(_context.Procedures, "ProcedureId", "ProcedureId", process.ProcedureId);
+            //ViewData["ProcedureId"] = new SelectList(_context.Procedures, "ProcedureId", "ProcedureId", process.ProcedureId);
+            PopulateProcedureDropdownList(process.ProcedureId);
             return View(process);
         }
 
@@ -154,6 +158,13 @@ namespace PolicyManagement.Controllers
         private bool ProcessExists(int id)
         {
             return _context.Processes.Any(e => e.ProcessId == id);
+        }
+
+        private void PopulateProcedureDropdownList(object selectedProcedure = null)
+        {
+            var proceduresQuery = from proc in _context.Procedures orderby proc.PrTitle select proc;
+
+            ViewBag.ProcedureId = new SelectList(proceduresQuery.AsNoTracking(), "ProcedureId", "PrTitle", selectedProcedure);
         }
     }
 }

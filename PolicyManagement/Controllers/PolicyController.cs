@@ -93,12 +93,21 @@ namespace PolicyManagement.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PolicyId,PTitle,PDescription,PScope,ApprovalAuthority,AdvisoryCommittee,Administrator,NxtReviewDate,OrigApprAuth,ApprDate,AmendAuth,AmendDate,Notes")] Policy policy)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(policy);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(policy);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
+            catch(DbUpdateException ex)
+            {
+                Console.WriteLine(ex);
+                ModelState.AddModelError("", "Unable to save changes. Please try again");
+            }
+            
             return View(policy);
         }
 
@@ -129,13 +138,13 @@ namespace PolicyManagement.Controllers
             {
                 return NotFound();
             }
-
+            
             if (ModelState.IsValid)
             {
                 try
                 {
                     _context.Update(policy);
-                    await _context.SaveChangesAsync();
+                    await _context.SaveChangesAsync();                       
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -145,7 +154,9 @@ namespace PolicyManagement.Controllers
                     }
                     else
                     {
+                        ModelState.AddModelError("", "Unable to save changes. Try again.");
                         throw;
+
                     }
                 }
                 return RedirectToAction(nameof(Index));
