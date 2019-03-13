@@ -10,84 +10,85 @@
 <div>
     <h4>Incident</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl>
+        @* class="dl-horizontal"  *@
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Title)
-        </dd>
+        </dd><br/>
         <dt>
             @Html.DisplayNameFor(model => model.FiledBy)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.FiledBy)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.FiledOn)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.FiledOn)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.Issues)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Issues)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.StepsTaken)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.StepsTaken)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.ExpectedOutcome)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ExpectedOutcome)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.ActualOutcome)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ActualOutcome)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.RootCause)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.RootCause)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.ChangedExpectation)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ChangedExpectation)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.NecessaryFix)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.NecessaryFix)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.FixStatus)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.FixStatus)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.FilerFeedback)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.FilerFeedback)
-        </dd>
+        </dd><br />
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="IncidentId" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-default">Back to List</a>
     </form>
 </div>

@@ -8,56 +8,57 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Actions</h4>
+    @*<h4>Actions</h4>*@
     <hr />
-    <dl class="dl-horizontal">
+    <dl>
+        @* class="dl-horizontal" *@
         <dt>
             @Html.DisplayNameFor(model => model.ATitle)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ATitle)
-        </dd>
+        </dd><br/>
         <dt>
             @Html.DisplayNameFor(model => model.ADesc)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ADesc)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.Inputs)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Inputs)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.Outputs)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Outputs)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.Departments)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Departments)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.IsSRSAffected)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.IsSRSAffected)
-        </dd>
+        </dd><br />
         <dt>
             @Html.DisplayNameFor(model => model.Process)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Process.ProcessId)
-        </dd>
+            @Html.DisplayFor(model => model.Process.ProcTitle)
+        </dd><br />
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="ActionId" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-default">Back to List</a>
     </form>
 </div>
